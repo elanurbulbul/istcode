@@ -1,4 +1,4 @@
-"use client"; // Bileşenin client bileşeni olduğunu belirtmek için.
+"use client";
 
 import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -21,7 +21,7 @@ export default function DetailPage() {
 
     const fetchContent = async () => {
       setLoading(true);
-      const res = await fetch('/dummy.json'); // Gerçek API endpointi ile değiştirin
+      const res = await fetch('/dummy.json'); 
       const data: Content[] = await res.json();
       const selectedContent = data.find((item) => item.id.toString() === id);
       setContent(selectedContent || null);
@@ -34,7 +34,7 @@ export default function DetailPage() {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <div className="text-xl text-gray-700">Loading...</div>
+        <div className="text-xl text-gray-700">Loading</div>
       </div>
     );
   }
@@ -49,7 +49,6 @@ export default function DetailPage() {
 
   return (
     <div className="max-w-6xl container mx-auto p-6 bg-white my-8">
-      {/* "Back to List" Butonu */}
       <button
         onClick={() => router.push("/")} 
         className="bg-blue-500 text-white px-4 py-2 rounded-md mb-6 flex items-center"
